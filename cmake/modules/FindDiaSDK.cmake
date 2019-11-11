@@ -35,10 +35,10 @@ find_path(DIASDK_INCLUDE_DIR    # Set variable DIASDK_INCLUDE_DIR
           DOC "path to DIA SDK header files"
           )
 
-if (CMAKE_GENERATOR MATCHES "Visual Studio.*Win64" )
+if (CMAKE_GENERATOR MATCHES "Visual Studio.*Win64" OR CMAKE_GENERATOR_PLATFORM MATCHES "x64")
   find_library(DIASDK_GUIDS_LIBRARY NAMES diaguids.lib
                HINTS ${DIASDK_INCLUDE_DIR}/../lib/amd64 )
-elseif (CMAKE_GENERATOR MATCHES "Visual Studio.*ARM" )
+elseif (CMAKE_GENERATOR MATCHES "Visual Studio.*ARM" OR CMAKE_GENERATOR_PLATFORM MATCHES "ARM")
   find_library(DIASDK_GUIDS_LIBRARY NAMES diaguids.lib
                HINTS ${DIASDK_INCLUDE_DIR}/../lib/arm )
 else (CMAKE_GENERATOR MATCHES "Visual Studio.*Win64" )

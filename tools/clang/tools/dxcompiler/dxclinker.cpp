@@ -9,6 +9,7 @@
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
+#include "dxc/Support/WinFunctions.h"
 #include "dxc/Support/WinIncludes.h"
 #include "dxc/DxilContainer/DxilContainer.h"
 #include "dxc/Support/ErrorCodes.h"
@@ -297,7 +298,7 @@ HRESULT STDMETHODCALLTYPE DxcLinker::Link(
       }
     }
     DiagStream.flush();
-    CComPtr<IStream> pStream = pDiagStream;
+    CComPtr<IStream> pStream = pDiagStream.Detach();
     dxcutil::CreateOperationResultFromOutputs(pOutputBlob, pStream, warnings,
                                               hasErrorOccurred, ppResult);
   }

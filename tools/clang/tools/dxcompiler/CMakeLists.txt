@@ -70,10 +70,10 @@ set(SOURCES
   dxcdisassembler.cpp
   dxillib.cpp
   dxcvalidator.cpp
+  dxclinker.cpp
 )
 set (HLSL_IGNORE_SOURCES
   dxcdia.cpp
-  dxclinker.cpp
 )
 endif(WIN32)
 
